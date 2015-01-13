@@ -1,0 +1,68 @@
+@(message: String)
+
+@main("Welcome to Play") {
+    <div id="user-admin-app"></div>
+    <script type="text/x-handlebars">
+        {{outlet}}
+    </script>
+
+    <script type="text/x-handlebars" id="index">
+        <h1>User Administration</h1>
+        <hr/>
+        <p>
+            Select what you want to do from below...
+        </p>
+        <ul>
+            <li>{{#link-to 'users'}}User List{{/link-to}}</li>
+            <li>Roles</li>
+            <li>Logs</li>
+        </ul>
+    </script>
+
+    <script type="text/x-handlebars" id="users" >
+        <h1>Last 20 users</h1>
+        <table class="table table-striped">
+            <tr>
+                <th>User</th>
+                <th>Name</th>
+                <th>Member Since</th>
+            </tr>
+            <tr>
+                <td>{{#link-to 'user' 'astray1988'}}<img src="https://avatars.githubusercontent.com/u/78586?" width="120px" />{{/link-to}}</td>
+                <td>{{#link-to 'user' 'astray1988'}}Rob Conery{{/link-to}}</td>
+                <td>12 months ago</td>
+            </tr>
+            <tr>
+                <td>{{#link-to 'user'}}<img src="https://avatars.githubusercontent.com/u/2892?" width="120px" />{{/link-to}}</td>
+                <td>{{#link-to 'user'}}Scott Hanselman{{/link-to}}</td>
+                <td>3 months ago</td>
+            </tr>
+        </table>
+    </script>
+
+    <script type="text/x-handlebars" id="user">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="well">
+                    <p class="text-center">
+                        <img src="https://avatars.githubusercontent.com/u/78586?" style="width:140px" />
+                     </p>
+                     <h4>Rob Conery</h4>
+                     <hr/>
+                     <table class="table table-striped">
+                        <tr><td>Username:</td><td>robconery</td></tr>
+                        <tr><td>Twitter::</td><td>@@robconery</td></tr>
+                        <tr><td>Bio::</td><td>lorem Ipsum</td></tr>
+                        <tr><td>Email :</td><td>rob at tekpub.com</td></tr>
+                     </table>
+                    <p>
+                        {{#link-to 'users'}}Back{{/link-to}}
+                    </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </script>
+
+}
